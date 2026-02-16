@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgdmlld0JveD0iMCAwIDEwMCAxMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iNTAiIGN5PSI1MCIgcj0iNDUiIHN0cm9rZT0iI2JlZjI2NCIgc3Ryb2tlLXdpZHRoPSI4Ii8+PHBhdGggZD0iTTMwIDQ1TDIwIDUwTDMwIDU1IiBzdHJva2U9IiNiZWYyNjQiIHN0cm9rZS13aWR0aD0iOCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+PHBhdGggZD0iTTcwIDQ1TDgwIDUwTDcwIDU1IiBzdHJva2U9IiNiZWYyNjQiIHN0cm9rZS13aWR0aD0iOCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+PHBhdGggZD0iTTU1IDM1TDQ1IDY1IiBzdHJva2U9IndoaXRlIiBzdHJva2Utd2lkdGg9IjgiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPjwvc3ZnPg==">
+    
+    <title>DevRecall | Seus Scripts</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        @keyframes gradient-bg {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .bg-grid {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-image: linear-gradient(rgba(190, 242, 100, 0.05) 1px, transparent 1px),
+                              linear-gradient(90deg, rgba(190, 242, 100, 0.05) 1px, transparent 1px);
+            background-size: 40px 40px;
+            z-index: -1;
+            mask-image: radial-gradient(circle at center, black, transparent 95%);
+        }
+
+        body {
+            background: linear-gradient(-45deg, #020617, #0f172a, #020617, #1e293b);
+            background-size: 400% 400%;
+            animation: gradient-bg 12s ease infinite;
+            color: #f8fafc;
+            font-family: 'Inter', sans-serif;
+            min-height: 100vh;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .glass { 
+            background: rgba(15, 23, 42, 0.85); 
+            backdrop-filter: blur(16px); 
+            border: 1px solid rgba(255,255,255,0.05); 
+        }
+
+        .card {
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            min-height: 420px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        @media (min-width: 1024px) {
+            .card:hover {
+                transform: translateY(-12px);
+                border-color: #bef264;
+                box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            }
+        }
+
+        /* Border Colors */
+        .b-js { border-top: 4px solid #f7df1e; }
+        .b-ts { border-top: 4px solid #3178c6; }
+        .b-python { border-top: 4px solid #3776ab; }
+        .b-java { border-top: 4px solid #ed8b00; }
+        .b-sql { border-top: 4px solid #f29111; }
+        .b-dax { border-top: 4px solid #bef264; }
+        .b-rust { border-top: 4px solid #dea584; }
+        .b-cpp { border-top: 4px solid #00599c; }
+        .b-csharp { border-top: 4px solid #239120; }
+        .b-go { border-top: 4px solid #00add8; }
+        .b-php { border-top: 4px solid #777bb4; }
+        .b-swift { border-top: 4px solid #f05138; }
+        .b-dart { border-top: 4px solid #0175c2; }
+        .b-kotlin { border-top: 4px solid #7f52ff; }
+        .b-ruby { border-top: 4px solid #cc342d; }
+
+        .code-area {
+            background: rgba(0, 0, 0, 0.7);
+            font-family: 'Fira Code', monospace;
+            scrollbar-width: thin;
+            scrollbar-color: #bef264 transparent;
+        }
+        .code-area::-webkit-scrollbar { height: 4px; }
+        .code-area::-webkit-scrollbar-thumb { background: #bef264; border-radius: 10px; }
+    </style>
+</head>
+<body class="p-4 md:p-12">
+    <div class="bg-grid"></div>
+
+    <header class="max-w-7xl mx-auto mb-12 flex flex-col lg:flex-row justify-between items-center gap-8">
+        <div class="text-center lg:text-left">
+            <h1 class="text-4xl md:text-6xl font-black bg-gradient-to-r from-slate-200 via-[#bef264] to-slate-500 bg-clip-text text-transparent italic tracking-tighter flex items-center justify-center lg:justify-start gap-4">
+                <svg width="50" height="50" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="drop-shadow-[0_0_8px_rgba(190,242,100,0.4)]">
+                    <path d="M7 8L3 12L7 16" stroke="#bef264" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M17 8L21 12L17 16" stroke="#bef264" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M14 4L10 20" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+                DEV_RECALL
+            </h1>
+            <p class="text-slate-500 font-mono text-[10px] md:text-xs mt-2 tracking-[0.2em] uppercase">// SCRIPTS_FACIL_V1</p>
+        </div>
+        <div class="flex flex-col sm:flex-row gap-4 w-full lg:w-auto">
+            <input type="text" id="search" onkeyup="filtrar()" placeholder="Buscar Script..." class="glass w-full lg:w-80 p-4 rounded-2xl outline-none text-white text-sm focus:border-[#bef264]">
+            <button onclick="abrirModal()" class="bg-[#bef264] hover:bg-white px-8 py-4 rounded-2xl font-black text-black transition-all active:scale-95 shadow-lg shadow-[#bef264]/20">+ ADD SCRIPT</button>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto space-y-20">
+        <section id="sec-pessoal" class="hidden">
+            <h2 class="text-[#bef264] font-bold mb-8 italic text-xs md:text-sm uppercase border-l-4 border-[#bef264] pl-4 tracking-widest">_MEUS_SCRIPTS</h2>
+            <div id="cont-pessoal" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 md:gap-8"></div>
+        </section>
+
+        <section>
+            <h2 class="text-slate-400 font-bold mb-8 italic text-xs md:text-sm uppercase border-l-4 border-slate-600 pl-4 tracking-widest">_BIBLIOTECA_MESTRE</h2>
+            <div id="cont-fixo" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 md:gap-8"></div>
+        </section>
+    </main>
+
+    <div id="modal" class="fixed inset-0 bg-black/95 backdrop-blur-2xl hidden flex items-center justify-center z-50 p-4">
+        <div class="glass max-w-xl w-full p-6 md:p-10 rounded-[2rem] max-h-[90vh] overflow-y-auto">
+            <h2 class="text-2xl font-black mb-8 text-[#bef264] italic">NOVO SCRIPT</h2>
+            <div class="space-y-4">
+                <input type="text" id="mT" placeholder="Título do Code" class="w-full p-4 rounded-xl bg-black/40 text-white outline-none border border-white/5 focus:border-[#bef264]">
+                <select id="mL" class="w-full p-4 rounded-xl bg-black/40 text-white outline-none border border-white/5"></select>
+                <textarea id="mC" placeholder="Cole seu código funcional aqui..." rows="8" class="w-full p-4 rounded-xl bg-black/40 text-white font-mono text-sm outline-none border border-white/5 focus:border-[#bef264]"></textarea>
+            </div>
+            <div class="flex flex-col sm:flex-row gap-4 mt-10">
+                <button onclick="fecharModal()" class="order-2 sm:order-1 flex-1 text-slate-500 font-bold py-3 uppercase tracking-widest text-xs">CANCELAR</button>
+                <button onclick="salvar()" class="order-1 sm:order-2 flex-1 bg-[#bef264] p-4 rounded-xl font-black text-black hover:bg-white transition-all uppercase tracking-widest text-xs">ADD SCRIPT</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const langs = {
+            js: { i: "devicon-javascript-plain", n: "JavaScript" },
+            ts: { i: "devicon-typescript-plain", n: "TypeScript" },
+            python: { i: "devicon-python-plain", n: "Python" },
+            java: { i: "devicon-java-plain", n: "Java" },
+            sql: { i: "devicon-mysql-plain", n: "SQL" },
+            dax: { i: "devicon-microsoftsqlserver-plain", n: "DAX (PBI)" },
+            rust: { i: "devicon-rust-plain", n: "Rust" },
+            cpp: { i: "devicon-cplusplus-plain", n: "C++" },
+            csharp: { i: "devicon-csharp-plain", n: "C#" },
+            go: { i: "devicon-go-original-wordmark", n: "Go" },
+            php: { i: "devicon-php-plain", n: "PHP" },
+            swift: { i: "devicon-swift-plain", n: "Swift" },
+            dart: { i: "devicon-dart-plain", n: "Dart" },
+            kotlin: { i: "devicon-kotlin-plain", n: "Kotlin" },
+            ruby: { i: "devicon-ruby-plain", n: "Ruby" }
+        };
+
+        const base = [
+            { t: "Tela de Login (HTML/Tailwind)", l: "js", c: '<form class="flex flex-col gap-4 p-6 bg-white rounded-lg">\n  <input type="email" placeholder="Email" class="border p-2 rounded">\n  <input type="password" placeholder="Senha" class="border p-2 rounded">\n  <button class="bg-blue-500 text-white p-2 rounded">Entrar</button>\n</form>' },
+            { t: "Validação de Email (Regex)", l: "ts", c: "const validateEmail = (email: string): boolean => {\n  const re = /\\S+@\\S+\\.\\S+/;\n  return re.test(email);\n};" },
+            { t: "Conexão SQLite Automática", l: "python", c: "import sqlite3\nconn = sqlite3.connect('database.db')\ncursor = conn.cursor()\ncursor.execute('CREATE TABLE IF NOT EXISTS users (id INTEGER PRIMARY KEY)')" },
+            { t: "Cálculo de Margem de Lucro", l: "dax", c: "Margem % = \nDIVIDE(\n    [Total Vendas] - [Total Custo], \n    [Total Vendas], \n    0\n)" },
+            { t: "API Express Simples", l: "js", c: "const express = require('express');\nconst app = express();\napp.get('/', (req, res) => res.send('API Online'));\napp.listen(3000);" },
+            { t: "Filtro de Preço SQL", l: "sql", c: "SELECT * FROM produtos \nWHERE preco > 100 \nAND categoria = 'Tech' \nORDER BY preco DESC;" },
+            { t: "Sistema de Login PHP (PDO)", l: "php", c: "$stmt = $pdo->prepare('SELECT * FROM users WHERE email = ?');\n$stmt->execute([$email]);\n$user = $stmt->fetch();" },
+            { t: "Componente Botão Flutter", l: "dart", c: "ElevatedButton(\n  onPressed: () => print('Click!'),\n  child: Text('Confirmar'),\n);" },
+            { t: "Match Pattern de Erros", l: "rust", c: "fn check(val: Option<i32>) {\n  match val {\n    Some(n) => println!(\"Num: {}\", n),\n    None => println!(\"Vazio\"),\n  }\n}" },
+            { t: "Data Class Usuário", l: "kotlin", c: "data class User(\n  val id: Long,\n  val name: String,\n  val isAdmin: Boolean = false\n)" },
+            { t: "HTTP Request Go", l: "go", c: "resp, err := http.Get(\"https://api.test.com\")\nif err != nil { log.Fatal(err) }\ndefer resp.Body.Close()" },
+            { t: "LINQ Filtro Lista", l: "csharp", c: "var ativos = lista.Where(x => x.Status == \"Ativo\")\n                  .OrderBy(x => x.Nome)\n                  .ToList();" },
+            { t: "Hello World C++", l: "cpp", c: "#include <iostream>\nint main() {\n  std::cout << \"Hello World\";\n  return 0;\n}" },
+            { t: "Swift UI View Layout", l: "swift", c: "VStack {\n  Image(systemName: \"person\")\n  Text(\"Perfil do Usuário\")\n    .font(.headline)\n}" },
+            { t: "Ruby Each Loop", l: "ruby", c: "users.each do |user|\n  puts \"Olá, #{user.name}!\"\nend" }
+        ];
+
+        let meus = JSON.parse(localStorage.getItem('vault_v8')) || [];
+
+        const select = document.getElementById('mL');
+        Object.keys(langs).forEach(k => {
+            select.innerHTML += `<option value="${k}">${langs[k].n}</option>`;
+        });
+
+        function render(item, idx, isP) {
+            const info = langs[item.l] || { i: "devicon-code-plain", n: item.l };
+            const cleanCode = item.c.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+            
+            return `
+                <div class="card glass p-6 md:p-8 rounded-[2rem] b-${item.l} group">
+                    <div class="flex justify-between items-center mb-6">
+                        <div class="flex items-center gap-3">
+                            <i class="${info.i} text-3xl text-white/80"></i>
+                            <span class="text-[9px] font-black text-slate-500 uppercase tracking-widest">${info.n}</span>
+                        </div>
+                        <div class="flex gap-2">
+                             ${isP ? `<button onclick="remover(${idx})" class="p-2 text-red-500/40 hover:text-red-500 transition-colors text-xs">🗑️</button>` : ''}
+                             <button onclick="copiar(this, \`${btoa(item.c)}\`)" class="bg-white/5 p-3 rounded-xl hover:bg-[#bef264] hover:text-black transition-all border border-white/5 shadow-inner">📋</button>
+                        </div>
+                    </div>
+                    <h3 class="font-black text-lg md:text-xl text-white mb-6 group-hover:text-[#bef264] transition-colors italic truncate">${item.t}</h3>
+                    <div class="code-area p-5 rounded-2xl text-[10px] md:text-[11px] overflow-x-auto h-40 text-slate-300 font-mono">
+                        <pre><code>${cleanCode}</code></pre>
+                    </div>
+                </div>
+            `;
+        }
+
+        function atualizar(f = "") {
+            const lowF = f.toLowerCase();
+            const filterFn = s => s.t.toLowerCase().includes(lowF) || s.l.toLowerCase().includes(lowF);
+            document.getElementById('cont-fixo').innerHTML = base.filter(filterFn).map((s, i) => render(s, i, false)).join('');
+            
+            const secP = document.getElementById('sec-pessoal');
+            if (meus.length > 0 || lowF !== "") {
+                secP.classList.remove('hidden');
+                document.getElementById('cont-pessoal').innerHTML = meus.filter(filterFn).map((s, i) => render(s, i, true)).join('');
+            } else { secP.classList.add('hidden'); }
+        }
+
+        function abrirModal() { 
+            document.getElementById('modal').classList.remove('hidden');
+            document.body.style.overflow = 'hidden'; 
+        }
+        function fecharModal() { 
+            document.getElementById('modal').classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }
+        function salvar() {
+            const t = document.getElementById('mT').value, l = document.getElementById('mL').value, c = document.getElementById('mC').value;
+            if(!t || !c) return alert("Preencha título e código!");
+            meus.unshift({ t, l, c });
+            localStorage.setItem('vault_v8', JSON.stringify(meus));
+            fecharModal(); atualizar();
+            document.getElementById('mT').value = '';
+            document.getElementById('mC').value = '';
+        }
+        function remover(i) { if(confirm("Apagar esse script?")) { meus.splice(i, 1); localStorage.setItem('vault_v8', JSON.stringify(meus)); atualizar(); } }
+        function filtrar() { atualizar(document.getElementById('search').value); }
+        function copiar(btn, b64) { 
+            navigator.clipboard.writeText(atob(b64)); 
+            const original = btn.innerHTML;
+            btn.innerText = "✅"; setTimeout(() => btn.innerHTML = original, 1000);
+        }
+
+        atualizar();
+    </script>
+</body>
+</html>
